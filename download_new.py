@@ -59,8 +59,8 @@ print('目前共有' + str(new_num_video) + '个视频。')
 if new_num_video > last_num_video:
     i = last_num_video + 1
     with open(video_dir + 'videos.txt') as f:
-        # 新增的链接就是在 0 至 new - old之间
-        for line in f.readlines()[0: new_num_video - last_num_video]:
+        # 新增的链接就是在last_num_video: new_num_video之间
+        for line in f.readlines()[last_num_video: new_num_video]:
             link = line.strip()
             print(link)
             download_video(i, link)
@@ -83,7 +83,7 @@ print('目前共有' + str(new_num_image) + '张图片。')
 if new_num_image > last_num_image:
     j = last_num_image + 1
     with open(image_dir + 'images.txt') as f:
-        for line in f.readlines()[0: new_num_image - last_num_image]:
+        for line in f.readlines()[last_num_video: new_num_video]:
             link = line.strip()
             print(link)
             img_type = link[-4:]

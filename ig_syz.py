@@ -3,7 +3,7 @@ import requests
 import json
 
 # 起个名字
-user_name = 'syz3'
+user_name = 'syz'
 # HTTP请求中找的
 user_id = 1584172338
 media_after = 'AQCN46TlLBVMhGaf7xrr_i4Jc4KaqbzH2IN_-EM0j-XbSjmYpByx_kpMPVHyoQV2t64sXopRP_zX0LMr83ufqr4rvKRksXp1IDRaSSpLptUEnw'
@@ -89,12 +89,12 @@ video_links = []
 
 # 首先读取文件中的video_links和img_links，加入上边两个List中
 # 打开文件时 只读方式 r
-# 不对，应该用w+，读写，若文件不存在，创建文件
-with open(user_name + '_videos' + '/videos.txt', 'w+') as f:
+# 不对，应该用r+，读写，若文件不存在，创建文件
+with open(user_name + '_videos' + '/videos.txt', 'r+') as f:
     for line in f.readlines():
         video_links.append(line.strip('\n'))
 
-with open(user_name + '_images' + '/images.txt', 'w+') as f:
+with open(user_name + '_images' + '/images.txt', 'r+') as f:
     for line in f.readlines():
         img_links.append(line.strip('\n'))
 
